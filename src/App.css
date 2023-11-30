@@ -1,38 +1,255 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body, #root {
+    height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background: #e4e7ef;
+    -webkit-font-smoothing: antialised;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body, input, button, textarea {
+    font-family: Roboto, sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width: 1000px) {
+    #app {
+        flex-direction: row;
+        align-items: unset;
+    }
+
+    #app aside {
+        width: 100%;
+    }
+	
+	#app main {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+}
+
+aside {
+    width: 320px;
+    margin-bottom: 30px;
+    background: #fff;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 30px 20px;
+    position: fixed;
+}
+
+aside strong {
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    color: #333;
+}
+
+@media (max-width: 1000px) {
+    aside {
+        position: relative;
+    }
+}
+
+aside form {
+    margin-top: 30px;
+}
+
+aside form .input-block {
+    margin-top: 20px;
+}
+
+aside form .input-block label {
+    color: #acacac;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+}
+
+aside form .input-block input {
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    color: #666;
+    border: 0;
+    border-bottom: 1px solid #eee;
+}
+
+aside form .input-block textarea {
+    margin-top: 7px;
+    width: 100%;
+    height: 200px;
+    font-size: 14px;
+    color: #666;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    resize: none;
+}
+
+aside form button[type=submit] {
+    width: 100%;
+    border: 0;
+    margin-top: 30px;
+    background: #ffd3ca;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+aside div.radioOptions {
+    color: #acacac;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+main {
+    flex: 1;
+    margin-left: 350px;
+}
+
+main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    list-style: none;
+}
+
+@media (max-width: 600px) {
+    main ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+li.notepad-infos div {
+    display: flex;
+    justify-content: space-between;
+}
+
+li.notepad-infos {
+    background: #fff;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+}
+
+li.notepad-infos strong{
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+li.notepad-infos div div {
+    color: #ffeae6;
+    cursor: pointer;
+}
+
+li.notepad-infos div div:hover {
+    color: #eb8f7a;
+    transition: 0.2s;
+}
+
+li.notepad-infos textarea {
+    padding: 7px;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 130px;
+    font-size: 14px;
+    color: #666;
+    border: 0;
+    background: #fff;
+    resize: none;
+}
+
+li.notepad-infos textarea:hover {
+    cursor: default;
+}
+
+li.notepad-infos span {
+    color: #c4c4c4;
+    cursor: pointer;
+}
+
+li.notepad-infos span:hover {
+    color: #eb8f7a;
+    transition: 0.2s;
+}
+
+li.notepad-infos-priority div {
+    display: flex;
+    justify-content: space-between;
+}
+
+li.notepad-infos-priority {
+    background: #eb8f7a;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+}
+
+li.notepad-infos-priority strong{
+    display: block;
+    font-size: 16px;
+    color: #fff;
+}
+
+li.notepad-infos-priority div div {
+    color: #ffeae6;
+    cursor: pointer;
+}
+
+li.notepad-infos-priority div div:hover {
+    color: #eb8f7a;
+    transition: 0.2s;
+}
+
+li.notepad-infos-priority textarea {
+    padding: 7px;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 130px;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    background: #eb8f7a;
+    resize: none;
+}
+
+li.notepad-infos-priority textarea:hover {
+    cursor: default;
+}
+
+li.notepad-infos-priority span {
+    color: #fabbad;
+    cursor: pointer;
+}
+
+li.notepad-infos-priority span:hover {
+    color: #eb8f7a;
+    transition: 0.2s;
 }
